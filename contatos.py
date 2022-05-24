@@ -16,7 +16,7 @@ while True:
     print('1 - Criar contato')
     print('2 - Mudar contato')
     print('3 - Excluir contato')
-    print('4 - Consultar contato')
+    print('4 - Consultar contatos')
     print('0 - Sair')
     resposta = input('Escolha uma das opções acima: ')
 
@@ -42,13 +42,12 @@ while True:
 
     elif resposta == '4':
         print('Consultar')
-        pass
+        print('='*40)
+        print('nome | email | telefone | valor-hora')
+        print('-'*40)
+        for contato in range(contatos):
+            print(f'{nomes[contato]} | {emails[contato]} | {telefones[contato]} | R$ {valor_hora[contato]}')
+        input('Pressione <Enter> para continuar...')
 
     else:
         print('Digite uma das opções acima!')
-
-print('='*40)
-print('nome | email | telefone | valor-hora')
-print('-'*40)
-for contato in range(contatos):
-    print(f'{nomes[contato]} | {emails[contato]} | {telefones[contato]} | R$ {valor_hora[contato]}')
