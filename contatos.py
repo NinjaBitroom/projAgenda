@@ -3,6 +3,9 @@ Gabriel Bitencourt Marin - UTF-8 - PT-BR
 projAgenda 23-04-2022
 """
 
+from ast import If
+
+
 nomes = []
 emails = []
 telefones = []
@@ -55,12 +58,32 @@ while True:
             emails[indice] = input('Digite o novo email: ')
             telefones[indice] = input('Digite o novo telefone: ')
             valor_hora[indice] = input('Digite o novo valor-hora: ')
-
-        print('Dados atualizados!')
+            print('Dados atualizados!')
 
     elif resposta == '3':
         print('Excluir')
-        pass
+        print('='*50)
+        print('índice | nome')
+        for contato in range(contatos):
+            print(f'{contato} | {nomes[contato]}')
+        print('-'*50)
+        
+        indice = int(input('Escolha o índice do contato: '))
+        print('-'*50)
+        print(f'Nome: {nomes[indice]}')
+        print(f'Email: {emails[indice]}')
+        print(f'Telefone: {telefones[indice]}')
+        print(f'Valor-hora: {valor_hora[indice]}')
+        print('-'*50)
+        prosseguir = input('Deseja excluir esse contato? (S/N): ')
+
+        if prosseguir.upper() == 'S':
+            nomes.pop(indice)
+            emails.pop(indice)
+            telefones.pop(indice)
+            valor_hora.pop(indice)
+            print('Dados excluídos!')
+            contatos -= 1
 
     elif resposta == '4':
         print('Consultar')
