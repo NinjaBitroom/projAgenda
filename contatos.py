@@ -12,13 +12,14 @@ resposta = ''
 contatos = 0
 print('Bem vindo ao projAgenda!')
 while True:
-    print('-'*40)
+    print('='*50)
     print('1 - Criar contato')
     print('2 - Mudar contato')
     print('3 - Excluir contato')
     print('4 - Consultar contatos')
     print('0 - Sair')
     resposta = input('Escolha uma das opções acima: ')
+    print('-'*50)
 
     if resposta == '0':
         print('Sair')
@@ -42,11 +43,12 @@ while True:
 
     elif resposta == '4':
         print('Consultar')
-        print('='*40)
-        print('nome | email | telefone | valor-hora')
-        print('-'*40)
+        print('='*50)
+        print('índice | nome | email | telefone | valor-hora')
+        print('-'*50)
         for contato in range(contatos):
-            print(f'{nomes[contato]} | {emails[contato]} | {telefones[contato]} | R$ {valor_hora[contato]}')
+            print(f'{contato} | {nomes[contato]} | {emails[contato]} | {telefones[contato]} | R$ {valor_hora[contato]}')
+        print('-'*50)
         input('Pressione <Enter> para continuar...')
 
     else:
