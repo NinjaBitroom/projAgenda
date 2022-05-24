@@ -3,9 +3,6 @@ Gabriel Bitencourt Marin - UTF-8 - PT-BR
 projAgenda 23-04-2022
 """
 
-from ast import If
-
-
 nomes = []
 emails = []
 telefones = []
