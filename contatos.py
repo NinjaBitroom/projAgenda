@@ -3,6 +3,8 @@ Gabriel Bitencourt Marin - UTF-8 - PT-BR
 projAgenda 23-04-2022
 """
 
+import re
+
 nomes = []
 emails = []
 telefones = []
@@ -27,10 +29,36 @@ while True:
 
     elif resposta == '1':
         print('Criar')
-        nomes.append(input('Digite o nome do contato: '))
-        emails.append(input('Digite o e-mail do contato: '))
-        telefones.append(input('Digite o telefone do contato: '))
-        valor_hora.append(input('Digite o valor-hora do contato: R$ '))
+        nome_valido = False
+        email_valido = False
+        telefone_valido = False
+        vlr_hora_valido = False
+
+        while not nome_valido:
+            nome = input('Digite o nome do contato: ')
+
+            if bool(re.match(r'^(\s)*$', nome)):
+                print('O nome não pode estar vazio!')
+            elif bool(re.search(r'\d', nome)):
+                print('Não pode conter números no nome!')
+            else:
+                nome_valido = True
+
+        while not email_valido:
+            email = input('Digite o e-mail do contato: ')
+
+            if bool(re.match("^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", email)):
+                email_valido = True
+            else:
+                print('Digite um email válido!')
+                
+        telefone = input('Digite o telefone do contato: ')
+        vlr_hora = input('Digite o valor-hora do contato: R$ ')
+
+        nomes.append(nome)
+        emails.append(email)
+        telefones.append(telefone)
+        valor_hora.append(vlr_hora)
         contatos += 1
     
     elif resposta == '2':
